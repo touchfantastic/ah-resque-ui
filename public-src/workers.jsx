@@ -39,7 +39,7 @@ const Workers = React.createClass({
 
     const client = this.props.client
 
-    client.action({}, '/api/resque/resqueDetails', 'GET', (data) => {
+    client.action({}, '/api-v2/resque/resqueDetails', 'GET', (data) => {
       this.setState({
         workers: data.resqueDetails.workers,
         counts: {
@@ -69,7 +69,7 @@ const Workers = React.createClass({
   loadWorkerQueues () {
     const client = this.props.client
 
-    client.action({}, '/api/resque/loadWorkerQueues', 'GET', (data) => {
+    client.action({}, '/api-v2/resque/loadWorkerQueues', 'GET', (data) => {
       let workerQueues = []
       Object.keys(data.workerQueues).forEach((workerName) => {
         let parts = workerName.split(':')
@@ -95,7 +95,7 @@ const Workers = React.createClass({
     const client = this.props.client
 
     if (confirm('Are you sure?')) {
-      client.action({workerName: workerName}, '/api/resque/forceCleanWorker', 'POST', (data) => {
+      client.action({workerName: workerName}, '/api-v2/resque/forceCleanWorker', 'POST', (data) => {
         this.loadWorkers()
       })
     }

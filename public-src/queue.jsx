@@ -51,7 +51,7 @@ const Queues = React.createClass({
       queue: this.state.queue,
       start: (this.state.page * this.state.perPage),
       stop: ((this.state.page * this.state.perPage) + (this.state.perPage - 1))
-    }, '/api/resque/queued', 'GET', (data) => {
+    }, '/api-v2/resque/queued', 'GET', (data) => {
       this.setState({
         jobs: data.jobs,
         queueLength: data.queueLength
@@ -65,7 +65,7 @@ const Queues = React.createClass({
     if (confirm('Are you sure?')) {
       client.action({
         queue: this.state.queue
-      }, '/api/resque/delQueue', 'POST', function (data) {
+      }, '/api-v2/resque/delQueue', 'POST', function (data) {
         browserHistory.push('/resque/#/overview')
         window.location.reload()
       })

@@ -36,7 +36,7 @@ const Locks = React.createClass({
       }, (this.state.refreshInterval * 1000))
     }
 
-    client.action({}, '/api/resque/locks', 'GET', (data) => {
+    client.action({}, '/api-v2/resque/locks', 'GET', (data) => {
       let locks = []
       Object.keys(data.locks).forEach(function (l) {
         locks.push({lock: l, at: new Date(parseInt(data.locks[l]) * 1000)})
@@ -52,7 +52,7 @@ const Locks = React.createClass({
     if (confirm('Are you sure?')) {
       client.action({
         lock: lock
-      }, '/api/resque/delLock', 'POST', (data) => {
+      }, '/api-v2/resque/delLock', 'POST', (data) => {
         this.loadLocks()
       })
     }

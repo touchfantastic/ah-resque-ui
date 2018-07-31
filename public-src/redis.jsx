@@ -15,7 +15,7 @@ const Redis = React.createClass({
   loadRedisInfo () {
     const client = this.props.client
 
-    client.action({}, '/api/resque/redisInfo', 'GET', (data) => {
+    client.action({}, '/api-v2/resque/redisInfo', 'GET', (data) => {
       this.setState({redisInfo: data.redisInfo})
     })
   },

@@ -41,7 +41,7 @@ const Failed = React.createClass({
 
   loadFailedCount () {
     const client = this.props.client
-    client.action({}, '/api/resque/resqueFailedCount', 'GET', (data) => {
+    client.action({}, '/api-v2/resque/resqueFailedCount', 'GET', (data) => {
       this.setState({counts: {failed: data.failedCount}})
       // $scope.pagination = $rootScope.genratePagination($scope.currentPage, $scope.perPage, $scope.counts.failed);
     })
@@ -59,7 +59,7 @@ const Failed = React.createClass({
     client.action({
       start: (this.state.page * this.state.perPage),
       stop: ((this.state.page * this.state.perPage) + (this.state.perPage - 1))
-    }, '/api/resque/resqueFailed', 'GET', (data) => {
+    }, '/api-v2/resque/resqueFailed', 'GET', (data) => {
       this.setState({failed: data.failed}, () => {
         this.loadFailedCount()
       })
@@ -70,7 +70,7 @@ const Failed = React.createClass({
     const client = this.props.client
     client.action({
       id: index
-    }, '/api/resque/removeFailed', 'POST', (data) => {
+    }, '/api-v2/resque/removeFailed', 'POST', (data) => {
       this.loadFailed()
     })
   },
@@ -79,7 +79,7 @@ const Failed = React.createClass({
     const client = this.props.client
     client.action({
       id: index
-    }, '/api/resque/retryAndRemoveFailed', 'POST', (data) => {
+    }, '/api-v2/resque/retryAndRemoveFailed', 'POST', (data) => {
       this.loadFailed()
     })
   },
@@ -87,7 +87,7 @@ const Failed = React.createClass({
   removeAllFailedJobs () {
     const client = this.props.client
     if (window.confirm('Are you sure?')) {
-      client.action({}, '/api/resque/removeAllFailed', 'POST', (data) => {
+      client.action({}, '/api-v2/resque/removeAllFailed', 'POST', (data) => {
         this.loadFailed()
       })
     }
@@ -96,7 +96,7 @@ const Failed = React.createClass({
   retryAllFailedJobs () {
     const client = this.props.client
     if (window.confirm('Are you sure?')) {
-      client.action({}, '/api/resque/retryAndRemoveAllFailed', 'POST', (data) => {
+      client.action({}, '/api-v2/resque/retryAndRemoveAllFailed', 'POST', (data) => {
         this.loadFailed()
       })
     }

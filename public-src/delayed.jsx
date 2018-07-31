@@ -51,7 +51,7 @@ const Delayed = React.createClass({
     client.action({
       start: (this.state.page * this.state.perPage),
       stop: ((this.state.page * this.state.perPage) + (this.state.perPage - 1))
-    }, '/api/resque/delayedjobs', 'GET', (data) => {
+    }, '/api-v2/resque/delayedjobs', 'GET', (data) => {
       let timestamps = []
       if (data.delayedjobs) {
         Object.keys(data.delayedjobs).forEach(function (t) {
@@ -77,7 +77,7 @@ const Delayed = React.createClass({
       client.action({
         timestamp: timestamp,
         count: count
-      }, '/api/resque/delDelayed', 'POST', (data) => {
+      }, '/api-v2/resque/delDelayed', 'POST', (data) => {
         this.loadDelayedJobs()
       })
     }
@@ -89,7 +89,7 @@ const Delayed = React.createClass({
     client.action({
       timestamp: timestamp,
       count: count
-    }, '/api/resque/runDelayed', 'POST', (data) => {
+    }, '/api-v2/resque/runDelayed', 'POST', (data) => {
       this.loadDelayedJobs()
     })
   },

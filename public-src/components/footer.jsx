@@ -16,7 +16,7 @@ const Footer = React.createClass({
   loadPackageDetails () {
     const client = this.props.client
 
-    client.action({}, '/api/resque/packageDetails', 'GET', (data) => {
+    client.action({}, '/api-v2/resque/packageDetails', 'GET', (data) => {
       this.setState({
         version: data.packageDetails.packageJSON.version,
         redis: {

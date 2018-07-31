@@ -64,7 +64,7 @@ const Overview = React.createClass({
 
   loadFailedCount () {
     const client = this.props.client
-    client.action({}, '/api/resque/resqueFailedCount', 'GET', (data) => {
+    client.action({}, '/api-v2/resque/resqueFailedCount', 'GET', (data) => {
       let counts = this.state.counts
       counts.failed = data.failedCount
       this.setState({counts: counts})
@@ -82,7 +82,7 @@ const Overview = React.createClass({
 
     const client = this.props.client
 
-    client.action({}, '/api/resque/resqueDetails', 'GET', (data) => {
+    client.action({}, '/api-v2/resque/resqueDetails', 'GET', (data) => {
       this.setState({
         queues: (data.resqueDetails.queues || {}),
         workers: (data.resqueDetails.workers || []),
