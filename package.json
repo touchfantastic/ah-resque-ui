@@ -21,10 +21,10 @@
     "node": ">=8.0.0"
   },
   "peerDependencies": {
-    "actionhero": "^18.0.0"
+    "actionhero": "git://github.com/touchfantastic/actionhero#63c4f6af92846ef028f729bf4a1d5eed5010ddb4",
   },
   "devDependencies": {
-    "actionhero": "^18.1.0",
+    "actionhero": "git://github.com/touchfantastic/actionhero#63c4f6af92846ef028f729bf4a1d5eed5010ddb4",
     "babel-core": "^6.26.0",
     "babel-loader": "^6.4.1",
     "babel-plugin-transform-runtime": "^6.15.0",
