@@ -21,7 +21,7 @@
     "node": ">=8.0.0"
   },
   "peerDependencies": {
-    "actionhero": "git://github.com/touchfantastic/actionhero#63c4f6af92846ef028f729bf4a1d5eed5010ddb4",
+    "actionhero": "git://github.com/touchfantastic/actionhero#63c4f6af92846ef028f729bf4a1d5eed5010ddb4"
   },
   "devDependencies": {
     "actionhero": "git://github.com/touchfantastic/actionhero#63c4f6af92846ef028f729bf4a1d5eed5010ddb4",
